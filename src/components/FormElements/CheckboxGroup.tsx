@@ -1,9 +1,5 @@
-import React, { RefObject } from 'react';
-
-export interface FormElement {
-  label: string;
-  reference: RefObject<HTMLInputElement>;
-}
+import React from 'react';
+import { FormElement } from './types';
 
 export default class CheckboxGroup extends React.Component<FormElement> {
   render() {
