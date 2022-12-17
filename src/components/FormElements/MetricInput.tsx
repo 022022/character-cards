@@ -2,14 +2,14 @@ import React from 'react';
 import { FormElement } from './types';
 
 
-export default class NameInput extends React.Component<FormElement> {
+export default class MetricInput extends React.Component<FormElement> {
   render() {
     return (
       <label className="field-group validated">
         {this.props.label}
         <input
-          className="input-field"
-          type="text"
+          className="input-field shorter"
+          type="number"
           ref={this.props.reference}
         />
         { this.props.error &&

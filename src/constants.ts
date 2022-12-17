@@ -4,6 +4,12 @@ export enum Constants {
   darkSideRibbonImg = '/images/ribbon.png',
 }
 
+export enum Errors {
+  requiredName = 'We need to know your name, at least serial number, please!',
+  requiredGeneric = 'Please, say something, at least say not to say)',
+  requiredHeight = 'Is your height really zero? Hmm...',
+}
+
 export const quotes = [
   `Jedi Knights happen when you're busy making other plans`,
   `Remember that you're absolutely unique. Just like everyone else`,

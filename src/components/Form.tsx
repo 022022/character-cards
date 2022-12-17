@@ -1,11 +1,15 @@
 import React from 'react';
 import CheckboxGroup from './FormElements/CheckboxGroup';
 import FileInput from './FormElements/FileInput';
-import NameInput from './FormElements/NameInput';
+import MetricInput from './FormElements/MetricInput';
 import SelectInput from './FormElements/SelectInput';
 import SwitchGroup from './FormElements/SwitchGroup';
+import StringInput from './FormElements/StringInput';
+import ColorInput from './FormElements/ColorInput';
+import { Errors } from '../constants';
+import { CreateForm } from './FormElements/types';
 
-export default class Form extends React.Component {
+export default class Form extends React.Component<CreateForm> {
 	formAll: React.RefObject<HTMLFormElement> = React.createRef();
 
 	switchGroup: React.RefObject<HTMLInputElement> = React.createRef();
@@ -21,15 +25,20 @@ export default class Form extends React.Component {
 
 	errorNameInput = '';
 	errorSelectInput = '';
+  errorHeightInput = '';
 
   validate = () => {
     let formIsValid = true;
     if (!this.nameInput.current?.value) {
-      this.errorNameInput = 'gfdgf';
+      this.errorNameInput = Errors.requiredName;
       formIsValid = false;
     }
     if (this.selectInput.current?.value === 'none') {
-      this.errorSelectInput = '867697';
+      this.errorSelectInput = Errors.requiredGeneric;
+      formIsValid = false;
+    }
+    if (!this.heightInput.current?.value) {
+      this.errorHeightInput = Errors.requiredHeight;
       formIsValid = false;
     }
 
@@ -39,10 +48,29 @@ export default class Form extends React.Component {
 	handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 
-    if(this.validate()){
-      // submit
-    } else {
+    if(!this.validate()){
       this.setState({ hasErrors: true });
+
+    } else {
+      this.setState({ hasErrors: false });
+
+      let image;
+      if (this.fileInput.current?.files && this.fileInput.current?.files[0]) {
+        image = this.fileInput.current?.files[0];
+      }
+
+      const newCard = {
+        sideOfTheForce: this.switchGroup.current?.checked || false,
+        name: this.nameInput.current?.value || 'No name',
+        addQuote: this.checkboxGroup.current?.checked || false,
+        species: this.selectInput.current?.value || 'Unknown',
+        imageUploaded: image || null,
+        height: this.heightInput.current?.value || 'Unknown',
+        hairColor: this.hairColorInput.current?.value || '',
+        eyesColor: this.eyesColorInput.current?.value  || '',
+      };
+
+      this.props.addToCardList(newCard);
     }
 
 
@@ -63,11 +91,11 @@ export default class Form extends React.Component {
 								reference={this.switchGroup}
 							></SwitchGroup>
 
-							<NameInput
+							<StringInput
 								label='Name'
 								reference={this.nameInput}
 								error={this.errorNameInput}
-							></NameInput>
+							></StringInput>
 
 							<CheckboxGroup
 								label='Add Random Quote'
@@ -81,6 +109,23 @@ export default class Form extends React.Component {
               ></SelectInput>
 
               <FileInput label='Image' reference={this.fileInput}></FileInput>
+
+              <MetricInput
+								label='Height'
+								reference={this.heightInput}
+                error={this.errorHeightInput}
+							></MetricInput>
+
+              <div className="colors">
+                <ColorInput
+                  label="Hair color"
+                  reference={this.hairColorInput}
+                ></ColorInput>
+                <ColorInput
+                  label="Eyes color"
+                  reference={this.eyesColorInput}
+                ></ColorInput>
+              </div>
 
               <button className="button submit">
                 Create

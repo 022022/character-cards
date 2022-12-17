@@ -1,21 +1,21 @@
 import React from 'react';
 import { Constants, quotes } from '../constants';
 
-interface CharacterData {
-  id: string,
+export interface Character {
+  id?: string,
   sideOfTheForce: boolean,
   name: string,
   addQuote: boolean,
-  quote: string,
+  quote?: string,
   species: string,
   height: string,
   imageUploaded: Blob | MediaSource | null,
-  imageStatic: string;
+  imageStatic?: string;
   hairColor: string,
   eyesColor: string,
 }
 
-export class Card extends React.Component<CharacterData> {
+export class Card extends React.Component<Character> {
   getRandomQuote() {
     if(this.props.quote){
       return this.props.quote;
