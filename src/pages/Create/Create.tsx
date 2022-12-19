@@ -1,6 +1,6 @@
 import React from 'react';
-import { Card, Character } from '../components/Card';
-import Form from '../components/Form';
+import { Card, Character } from '../../components/Card';
+import Form from '../../components/Form/Form';
 
 export interface CreateForm {
   addToCardList: (character: Character) => void;

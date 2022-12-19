@@ -1,13 +1,15 @@
 import React from 'react';
-import CheckboxGroup from './FormElements/CheckboxGroup';
-import FileInput from './FormElements/FileInput';
-import MetricInput from './FormElements/MetricInput';
-import SelectInput from './FormElements/SelectInput';
-import SwitchGroup from './FormElements/SwitchGroup';
-import StringInput from './FormElements/StringInput';
-import ColorInput from './FormElements/ColorInput';
-import { Errors } from '../constants';
-import { CreateForm } from './FormElements/types';
+import CheckboxGroup from './../FormElements/CheckboxGroup/CheckboxGroup';
+import FileInput from './../FormElements/FileInput/FileInput';
+import MetricInput from './../FormElements/MetricInput/MetricInput';
+import SelectInput from './../FormElements/SelectInput/SelectInput';
+import SwitchGroup from './../FormElements/SwitchGroup/SwitchGroup';
+import StringInput from './../FormElements/StringInput/StringInput';
+import ColorInput from './../FormElements/ColorInput/ColorInput';
+import { Errors } from '../../constants';
+import { CreateForm } from './../FormElements/types';
+
+import styles from './Form.module.css';
 
 export default class Form extends React.Component<CreateForm> {
 	formAll: React.RefObject<HTMLFormElement> = React.createRef();
@@ -80,10 +82,10 @@ export default class Form extends React.Component<CreateForm> {
 		return (
 			<>
 				<div className='creating-cards'>
-					<div className='formContainer'>
+
 						<form
 							ref={this.formAll}
-							className='character-form'
+							className={styles.characterForm}
 							onSubmit={this.handleSubmit}
 						>
 							<SwitchGroup
@@ -97,11 +99,6 @@ export default class Form extends React.Component<CreateForm> {
 								error={this.errorNameInput}
 							></StringInput>
 
-							<CheckboxGroup
-								label='Add Random Quote'
-								reference={this.checkboxGroup}
-							></CheckboxGroup>
-
               <SelectInput
                 label='Species'
                 reference={this.selectInput}
@@ -110,13 +107,18 @@ export default class Form extends React.Component<CreateForm> {
 
               <FileInput label='Image' reference={this.fileInput}></FileInput>
 
+							<CheckboxGroup
+								label='Add Random Quote'
+								reference={this.checkboxGroup}
+							></CheckboxGroup>
+
               <MetricInput
-								label='Height'
+								label='Height (m)'
 								reference={this.heightInput}
                 error={this.errorHeightInput}
 							></MetricInput>
 
-              <div className="colors">
+              <div className={styles.colors}>
                 <ColorInput
                   label="Hair color"
                   reference={this.hairColorInput}
@@ -127,12 +129,12 @@ export default class Form extends React.Component<CreateForm> {
                 ></ColorInput>
               </div>
 
-              <button className="button submit">
+              <button className={styles.submit}>
                 Create
               </button>
 
 						</form>
-					</div>
+
 				</div>
 			</>
 		);

@@ -1,0 +1,14 @@
+.checkbox {
+  width: 1.5rem;
+  height: 1.5rem;
+
+  accent-color: #8a4c93;
+}
+
+.checkbox-group {
+  height: 2rem;
+  gap: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

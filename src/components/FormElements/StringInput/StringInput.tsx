@@ -1,14 +1,16 @@
 import React from 'react';
-import { FormElement } from './types';
+import { FormElement } from './../types';
 
+import styles from './StringInput.module.css';
+import formStyles from './../../Form/Form.module.css';
 
 export default class StringInput extends React.Component<FormElement> {
   render() {
     return (
-      <label className="field-group validated">
+      <label className={`${formStyles['field-group']} ${formStyles.validated}`}>
         {this.props.label}
         <input
-          className="input-field"
+          className={styles['input-field']}
           type="text"
           ref={this.props.reference}
         />

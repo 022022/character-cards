@@ -1,12 +1,15 @@
 import React from 'react';
-import { FormSelectElement } from './types';
+import { FormSelectElement } from './../types';
+
+import styles from './SelectInput.module.css';
+import formStyles from './../../Form/Form.module.css';
 
 export default class SelectInput extends React.Component<FormSelectElement> {
   render() {
     return (
-      <label className="field-group validated">
+      <label className={`${formStyles['field-group']} ${formStyles.validated}`}>
         {this.props.label}
-        <select className="select-field" defaultValue={'none'} ref={this.props.reference}>
+        <select className={styles['select-field']} defaultValue={'none'} ref={this.props.reference}>
           <option value="none"> </option>
           <option value="human">Human</option>
           <option value="wookie">Wookie</option>

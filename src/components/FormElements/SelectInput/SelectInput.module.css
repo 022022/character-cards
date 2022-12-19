@@ -1,0 +1,25 @@
+.select-field {
+  margin-top: 0.5rem;
+  padding: 0.3rem 1rem;
+  border: 1px solid #c095c6;
+  border-radius: 2rem;
+  font-size: 1.4rem;
+  background-color: #c8c2d8;
+  color: #58305e;
+  width: 15.56rem;
+  appearance: none;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADcAAAAsCAMAAAD2FNAsAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAABCUExURQAAABAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEJlKgnsAAAAVdFJOUwAQIDBAUF9gb3B/gI+Qn6Cvv8/f7w6Awy0AAAEqSURBVEjHnZbtFoMgCIaRal+ulTPv/1Y3xVWnRGHvrzrB8RHwNQCA68tpNF8gCt9BK4/fPBf0cgB9+Ec92L/yRpjSur1cjvLueV2paF8XMEuqkJHm+Ri+fAtKCz6FaY8UfYe1ETJSpP7RcyJ9yykD0guRWjHlGkmT1qkoo7rf8Ggoo+xWJTnlSrqginKbAqejjBqbpLdi1Y1vkFKXPTOvPCk7VXXSaz52Z1VJ0fOnpkY65VNX1Mh+JMoXs4dMajhKrHvArKOMmlPAoKJMpEuBtEUZNRTMpklZHos25W4MzaHIdcrNbDbSp4TyTMq1pkXqBUZQIH2IjOdEikKjO5IWLaVFakvGJyEdQtlSeHW7KxkVebtb34JKv58ar0vLh0cwl6fEyQdv2Wv/A1JtObW7qEEtAAAAAElFTkSuQmCC');
+  background-repeat: no-repeat;
+  background-position: right 0.7rem top 50%, 0 0;
+  background-size: 1rem auto, 100%;
+}
+
+.select-field:focus {
+  outline: none;
+  background-color: #eeecf6;
+}
+
+.select-field:hover {
+  cursor: pointer;
+  background-color: #dedae8;
+}
