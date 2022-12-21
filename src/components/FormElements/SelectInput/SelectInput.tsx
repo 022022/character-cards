@@ -9,7 +9,12 @@ export default class SelectInput extends React.Component<FormSelectElement> {
     return (
       <label className={`${formStyles['field-group']} ${formStyles.validated}`}>
         {this.props.label}
-        <select className={styles['select-field']} defaultValue={'none'} ref={this.props.reference}>
+        <select
+        className={ this.props.error ?
+            `${formStyles['error-field']} ${styles['select-field']}`
+            : styles['select-field'] }
+        defaultValue={'none'} ref={this.props.reference}>
+          
           <option value="none"> </option>
           <option value="human">Human</option>
           <option value="wookie">Wookie</option>
@@ -22,7 +27,7 @@ export default class SelectInput extends React.Component<FormSelectElement> {
           <option value="secret">Rather not say</option>
         </select>
         { this.props.error &&
-          <div className="error-message" >
+          <div className={formStyles['error-message']} >
             {this.props.error}
           </div>
         }

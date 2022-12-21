@@ -10,12 +10,14 @@ export default class StringInput extends React.Component<FormElement> {
       <label className={`${formStyles['field-group']} ${formStyles.validated}`}>
         {this.props.label}
         <input
-          className={styles['input-field']}
+          className={ this.props.error ?
+             `${formStyles['error-field']} ${styles['input-field']}`
+             : styles['input-field'] }
           type="text"
           ref={this.props.reference}
         />
         { this.props.error &&
-          <div className="error-message" >
+          <div className={formStyles['error-message']}>
             {this.props.error}
           </div>
         }

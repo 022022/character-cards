@@ -1,5 +1,5 @@
 import { RefObject } from 'react';
-import { Character } from '../Card';
+import { Character } from '../Card/Card';
 
 export interface FormElement {
   label: string;

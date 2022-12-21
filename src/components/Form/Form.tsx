@@ -31,58 +31,71 @@ export default class Form extends React.Component<CreateForm> {
 
   validate = () => {
     let formIsValid = true;
+
     if (!this.nameInput.current?.value) {
       this.errorNameInput = Errors.requiredName;
       formIsValid = false;
+    } else {
+      this.errorNameInput = '';
     }
+
     if (this.selectInput.current?.value === 'none') {
       this.errorSelectInput = Errors.requiredGeneric;
       formIsValid = false;
+    } else {
+      this.errorSelectInput = '';
     }
+
     if (!this.heightInput.current?.value) {
       this.errorHeightInput = Errors.requiredHeight;
       formIsValid = false;
+    } else {
+      this.errorHeightInput = '';
     }
 
+    if(!formIsValid){
+      this.setState({ hasErrors: true })
+    }
     return formIsValid;
+  }
+
+  resetValidation = () => {
+    this.errorNameInput = '';
+    this.errorSelectInput = '';
+    this.errorHeightInput = '';
   }
 
 	handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 
-    if(!this.validate()){
-      this.setState({ hasErrors: true });
-
-    } else {
-      this.setState({ hasErrors: false });
-
+    if(this.validate()) {
       let image;
       if (this.fileInput.current?.files && this.fileInput.current?.files[0]) {
         image = this.fileInput.current?.files[0];
       }
 
       const newCard = {
+        id: String(Date.now()),
         sideOfTheForce: this.switchGroup.current?.checked || false,
         name: this.nameInput.current?.value || 'No name',
         addQuote: this.checkboxGroup.current?.checked || false,
         species: this.selectInput.current?.value || 'Unknown',
         imageUploaded: image || null,
         height: this.heightInput.current?.value || 'Unknown',
-        hairColor: this.hairColorInput.current?.value || '',
-        eyesColor: this.eyesColorInput.current?.value  || '',
+        hairColor: this.hairColorInput.current?.value || '#000000',
+        eyesColor: this.eyesColorInput.current?.value  || '#000000',
       };
 
+      this.formAll.current?.reset();
+      this.setState({ hasErrors: false });
+      this.resetValidation();
       this.props.addToCardList(newCard);
     }
-
-
 	};
 
 	render() {
 		return (
 			<>
-				<div className='creating-cards'>
-
 						<form
 							ref={this.formAll}
 							className={styles.characterForm}
@@ -135,7 +148,6 @@ export default class Form extends React.Component<CreateForm> {
 
 						</form>
 
-				</div>
 			</>
 		);
 	}

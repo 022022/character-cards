@@ -10,12 +10,14 @@ export default class MetricInput extends React.Component<FormElement> {
       <label className={`${styles['field-group']} ${formStyles.validated}`} >
         {this.props.label}
         <input
-          className={styles['input-shorter']}
+          className={ this.props.error ?
+            `${formStyles['error-field']} ${styles['input-shorter']}`
+            : styles['input-shorter'] }
           type="number" min={0}
           ref={this.props.reference}
         />
         { this.props.error &&
-          <div className="error-message" >
+          <div className={formStyles['error-message']} >
             {this.props.error}
           </div>
         }

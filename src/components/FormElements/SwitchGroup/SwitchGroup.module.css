@@ -50,3 +50,9 @@ input:checked + .switch-on {
 input:checked + .character__switch-slider:before {
   transform: translateX(3.4rem);
 }
+
+@media (max-width: 480px){
+  .switch-group {
+    flex-direction: column;
+  }
+}

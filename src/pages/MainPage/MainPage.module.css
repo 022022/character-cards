@@ -3,4 +3,25 @@
   gap: 2rem;
   justify-content: center;
   flex-wrap: wrap;
+  margin: 2rem;
+}
+
+.teaser {
+  width: 22rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (max-width: 1280px) {
+
+  .teaser {
+    order: 1;
+    width: 100%;
+  }
+
+  .cards {
+    margin: 1rem;
+  }
 }
