@@ -1,0 +1,14 @@
+.create-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2rem;
+  justify-content: center;
+  height: 100%;
+}
+
+@media (max-width: 480px) {
+  .create-cards {
+    margin: 1rem;
+  }
+}

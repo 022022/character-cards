@@ -1,0 +1,13 @@
+.file-selector {
+  border: dashed 1px #c095c6;
+  padding: 1rem;
+  width: 100%;
+  border-radius: 2rem;
+}
+
+.file-selector::file-selector-button {
+  border: 1px solid #c095c6;
+  border-radius: 2rem;
+  padding: 0.5rem 1rem;
+  background-color: #c8c2d8;
+}

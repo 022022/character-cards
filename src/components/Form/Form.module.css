@@ -1,0 +1,84 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.characterForm {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 1rem 2rem;
+  background-color: #392d3b;
+  border-radius: 1rem;
+  font-size: 1.2rem;
+  z-index: 1000;
+
+  height: 39rem;
+  width: 22rem;
+}
+
+.submit {
+  width: fit-content;
+  align-self: center;
+  padding-top: 0.6rem;
+  margin-top: 1.2rem;
+  font-size: 1.1rem;
+}
+
+.field-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.colors {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.error-field {
+  outline: dashed 2px #ff6a6a;
+  background-color: #d9b7bb;
+}
+
+
+.validated {
+  position: relative;
+}
+
+.error-message {
+  z-index: 1000;
+  position: absolute;
+  top: -1rem;
+  right: -18rem;
+  width: 15rem;
+  height: 3.1rem;
+  background-color: #f9dde0;
+  border-radius: 1rem;
+  color: #2c1e2e;
+  padding: 0.7rem;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 480px) {
+  .characterForm {
+    width: 100%;
+    gap: 1rem;
+    height: min-content;
+    padding: 1rem;
+  }
+
+  .colors {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .field-group {
+    gap: 1rem;
+  }
+}

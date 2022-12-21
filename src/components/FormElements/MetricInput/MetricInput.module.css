@@ -1,0 +1,29 @@
+.input-shorter {
+  margin-top: 0.5rem;
+  padding: 0.3rem 0.5rem;
+  border: 1px solid #c095c6;
+  border-radius: 2rem;
+  font-size: 1.3rem;
+  appearance: none;
+  background-color: #c8c2d8;
+  color: #58305e;
+  width: 5.8rem;
+}
+
+.input-shorter:focus {
+  outline: none;
+  background-color: #eeecf6;
+}
+
+.input-shorter:hover {
+  cursor: text;
+  background-color: #dedae8;
+}
+
+.field-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
